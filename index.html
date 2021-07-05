@@ -27,54 +27,52 @@
 
 
 
-        <div id="todoapp"><a href="#" id="closeTDL" onclick="toggle_visibility('dragme');" style="color:white;background-color:transparent;text-decoration:none;">X&nbsp;</a>
+
+        <div style="width: 800px;" id="todoapp">
+
+            <h2>Lista de Tarefas</h2>
+            <section id="main">
+
+                <ul id="todo-list"></ul>
 
 
-            <div id="todoapp">
+            </section>
+            <header>
 
-                <h2>Lista de Tarefas</h2>
-                <section id="main">
+                <input style="width: 770px;" id="new-todo" type="text" placeholder="Escreva aqui e pressione 'Enter'...">
 
-                    <ul id="todo-list"></ul>
-
-
-                </section>
-                <header>
-
-                    <input id="new-todo" type="text" placeholder="Escreva aqui e pressione 'Enter'...">
-
-                </header>
+            </header>
 
 
 
-                <footer>
+            <footer>
 
-                    <a id="clear-completed">Limpar tarefas</a>
-                    <div id="todo-count"></div>
-                </footer>
-
-            </div>
-
-            <!-- Templates -->
-
-            <script type="text/template" id="item-template">
-                <div class="view">
-
-                    <label><input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> /><i></i><span title="Double-click to edit a todo."><%- title %></span></label>
-                    <a class="destroy">&minus;</a>
-                </div>
-                <input class="edit" type="text" value="<%- title %>" />
-            </script>
-
-            <script type="text/template" id="stats-template">
-                <% if (done) { %>
-                    <a id="clear-completed">Limpar <%= done %> Completadas <%= done == 1 ? 'item' : 'items' %></a>
-                    <% } %>
-                        <div class="todo-count"><b><%= remaining %></b>
-                            <%= remaining == 1 ? 'item' : 'items' %> Restantes</div>
-            </script>
+                <a id="clear-completed">Limpar tarefas</a>
+                <div id="todo-count"></div>
+            </footer>
 
         </div>
+
+        <!-- Templates -->
+
+        <script type="text/template" id="item-template">
+            <div class="view">
+
+                <label><input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> /><i></i><span title="Double-click to edit a todo."><%- title %></span></label>
+                <a class="destroy">&minus;</a>
+            </div>
+            <input class="edit" type="text" value="<%- title %>" />
+        </script>
+
+        <script type="text/template" id="stats-template">
+            <% if (done) { %>
+                <a id="clear-completed">Limpar <%= done %> Completadas <%= done == 1 ? 'item' : 'items' %></a>
+                <% } %>
+                    <div class="todo-count"><b><%= remaining %></b>
+                        <%= remaining == 1 ? 'item' : 'items' %> Restantes</div>
+        </script>
+
+
 
         <script type="text/javascript">
             function toggle_visibility(id) {
